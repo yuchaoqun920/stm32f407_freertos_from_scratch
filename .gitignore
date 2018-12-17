@@ -1,0 +1,7 @@
+Projects/STM32F407/EWARM/settings/
+Projects/STM32F407/EWARM/STM32F4-Discovery
+Projects/STM32F407/GCC/f407.*
+*.o
+*.lst
+*.map
+.DS_Store
