@@ -5,3 +5,7 @@ Projects/STM32F407/GCC/f407.*
 *.lst
 *.map
 .DS_Store
+Projects/STM32F407/EWARM/.DS_Store
+Drivers/.DS_Store
+Projects/.DS_Store
+Projects/STM32F407/.DS_Store

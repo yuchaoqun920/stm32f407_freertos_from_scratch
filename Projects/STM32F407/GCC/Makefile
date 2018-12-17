@@ -37,8 +37,8 @@ endif
 
 
 # define root dir
-ROOT_DIR     = ./../
-TOP_ROOT_DIR = ./../../../
+ROOT_DIR     = ./../../../
+# TOP_ROOT_DIR = ./../../../
 
 # define include dir
 INCLUDE_DIRS =
@@ -51,14 +51,15 @@ FREERTOS_DIR = $(ROOT_DIR)/Middlewares/Third_Party/FreeRTOS/Source
 #FREERTOS_DIR = $(TOP_ROOT_DIR)/stm32/bootloader/Middlewares/Third_Party/FreeRTOS/Source
 
 # define user dir
-PROJECT_DIR     = $(ROOT_DIR)/GCC
-USER_DIR        = $(ROOT_DIR)/Src
-COMMON_DIR      = $(TOP_ROOT_DIR)/common
+PROJECT_DIR     = ../
+USER_DIR        = $(PROJECT_DIR)/Src
+BSP_DIR 		= $(ROOT_DIR)/Drivers/BSP/STM32F4-Discovery
+# COMMON_DIR      = $(TOP_ROOT_DIR)/common
 PLATFORM_DIR 	= $(USER_DIR)/$(PLATFORM)
 MTM_PROTOCOL_DIR = $(COMMON_DIR)/mtm_protcol
 MODBUS_DIR      = $(ROOT_DIR)/Middlewares/Third_Party/MODBUS
 UNITYTEST_DIR   = $(ROOT_DIR)/Middlewares/Third_Party/UnityTest
-BOOTLOADER_DIR  = $(TOP_ROOT_DIR)/stm32/bootloader/
+# BOOTLOADER_DIR  = $(TOP_ROOT_DIR)/stm32/bootloader/
 
 # define bin dir
 BIN_DIR      = $(PROJECT_DIR)/bin
@@ -73,34 +74,26 @@ DEPS_DIR  = $(BUILD_DIR)/deps
 
 # link file
 ifeq (${PLATFORM}, f407)
-LINK_SCRIPT  = $(PROJECT_DIR)/stm32_flash_f407.ld
+LINK_SCRIPT  = $(PROJECT_DIR)/GCC/stm32_flash_f407.ld
 endif
 
 ifeq (${PLATFORM}, f401)
-LINK_SCRIPT  = $(PROJECT_DIR)/stm32_flash_f407.ld
+LINK_SCRIPT  = $(PROJECT_DIR)/GCC/stm32_flash_f407.ld
 endif
 
 ifeq (${PLATFORM}, f105)
-LINK_SCRIPT  = $(PROJECT_DIR)/stm32_flash_f105.ld
+LINK_SCRIPT  = $(PROJECT_DIR)/GCC/stm32_flash_f105.ld
 endif
 
 # user specific
 SRC       =
 ASM_SRC   =
-SRC      += $(PROJECT_DIR)/syscalls.c
+SRC      += $(PROJECT_DIR)/GCC/syscalls.c
+SRC      += $(BSP_DIR)/stm32f4_discovery.c
 SRC      += $(USER_DIR)/main.c
 SRC      += $(USER_DIR)/stm32f4xx_it.c
 SRC      += $(USER_DIR)/system_stm32f4xx.c
-SRC      += $(USER_DIR)/LED/led.c
-SRC      += $(USER_DIR)/delay/delay.c
-SRC      += $(USER_DIR)/sys/sys.c
-SRC      += $(USER_DIR)/usart/usart.c
-ASM_SRC  += $(ROOT_DIR)/CORE/startup_stm32f407xx.s
-SRC      += $(ROOT_DIR)/FWLIB/src/misc.c
-SRC      += $(ROOT_DIR)/FWLIB/src/stm32f4xx_gpio.c
-SRC      += $(ROOT_DIR)/FWLIB/src/stm32f4xx_rcc.c
-SRC      += $(ROOT_DIR)/FWLIB/src/stm32f4xx_syscfg.c
-SRC      += $(ROOT_DIR)/FWLIB/src/stm32f4xx_usart.c
+SRC      += $(USER_DIR)/stm32f4xx_hal_msp.c
 
 ifeq (${UNITTEST}, 1)
 SRC      += $(UNITYTEST_DIR)/unity.c
@@ -118,6 +111,8 @@ else
 INCLUDE_DIRS    += $(ROOT_DIR)/Inc/f1xx
 # $(warning $(ROOT_DIR)/Inc/f1xx)
 endif
+INCLUDE_DIRS    += $(BSP_DIR)
+INCLUDE_DIRS    += $(PROJECT_DIR)/Inc
 INCLUDE_DIRS    += $(ROOT_DIR)/libs
 INCLUDE_DIRS    += $(ROOT_DIR)/libs/sys_log/include
 INCLUDE_DIRS    += $(ROOT_DIR)/libs/middle_driver/inc
@@ -135,22 +130,18 @@ INCLUDE_DIRS    += $(MODBUS_DIR)/rtu
 INCLUDE_DIRS    += $(UNITYTEST_DIR)
 INCLUDE_DIRS    += $(USER_DIR)/UnityTest
 INCLUDE_DIRS    += $(USER_DIR)
-INCLUDE_DIRS    += $(USER_DIR)/LED
-INCLUDE_DIRS    += $(USER_DIR)/sys
-INCLUDE_DIRS    += $(USER_DIR)/delay
-INCLUDE_DIRS    += $(USER_DIR)/usart
 INCLUDE_DIRS    += $(ROOT_DIR)/FWLIB/inc
 INCLUDE_DIRS    += $(ROOT_DIR)/CORE
 INCLUDE_DIRS    += $(BOOTLOADER_DIR)/UnityTest
 
 # include sub makefiles
-# ifeq (${PLATFORM}, f407)
-# include makefile_std_lib_m4.mk   # STM32 Standard Peripheral Library
+ifeq (${PLATFORM}, f407)
+include makefile_std_lib_m4.mk   # STM32 Standard Peripheral Library
 # include makefile_freertos_m4.mk  # freertos source
-# else
-# include makefile_std_lib.mk   # STM32 Standard Peripheral Library
+else
+include makefile_std_lib.mk   # STM32 Standard Peripheral Library
 # include makefile_freertos.mk  # freertos source
-# endif
+endif
 
 INCDIR  = $(patsubst %, -I%, $(INCLUDE_DIRS))
 
