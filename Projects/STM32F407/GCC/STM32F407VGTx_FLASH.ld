@@ -184,6 +184,15 @@ SECTIONS
   }
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
+
 }
 
+/* Nice to have */
+__isr_vector_size__ = SIZEOF(.isr_vector);
+__text_size__ = SIZEOF(.text);
+__data_size__ = SIZEOF(.data);
+__bss_size__ = SIZEOF(.bss);
 
+PROVIDE ( end = _ebss );
+PROVIDE ( _end = _ebss );
+PROVIDE(__HEAP_START = _end );

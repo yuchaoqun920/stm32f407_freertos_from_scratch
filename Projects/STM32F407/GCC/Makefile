@@ -74,7 +74,8 @@ DEPS_DIR  = $(BUILD_DIR)/deps
 
 # link file
 ifeq (${PLATFORM}, f407)
-LINK_SCRIPT  = $(PROJECT_DIR)/GCC/stm32_flash_f407.ld
+# LINK_SCRIPT  = $(PROJECT_DIR)/GCC/stm32_flash_f407.ld
+LINK_SCRIPT  = $(PROJECT_DIR)/GCC/STM32F407VGTx_FLASH.ld
 endif
 
 ifeq (${PLATFORM}, f401)

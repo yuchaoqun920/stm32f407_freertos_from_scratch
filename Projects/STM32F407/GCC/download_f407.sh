@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-rm zebra.*
+rm f407.*
 # make clean
 make
 if [ "$?" -ne "0" ]; then

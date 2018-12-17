@@ -143,7 +143,7 @@
         <option>
           <name>GBECoreSlave</name>
           <version>20</version>
-          <state>39</state>
+          <state>40</state>
         </option>
         <option>
           <name>OGUseCmsis</name>
@@ -590,7 +590,7 @@
         <option>
           <name>OOCOutputFormat</name>
           <version>2</version>
-          <state>1</state>
+          <state>2</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
@@ -598,7 +598,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>Project.hex</state>
+          <state>Project.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>

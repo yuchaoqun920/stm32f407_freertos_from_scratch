@@ -51,6 +51,8 @@
 /* Private define ------------------------------------------------------------*/
 #define TRANSMITTER_BOARD
 
+#define DEBUG_LOG  printf
+
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* UART handler declaration */
@@ -67,6 +69,20 @@ uint8_t aRxBuffer[RXBUFFERSIZE];
 static void SystemClock_Config(void);
 static void Error_Handler(void);
 static uint16_t Buffercmp(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength);
+
+
+/* printf interface  */
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+
+PUTCHAR_PROTOTYPE
+{
+    HAL_UART_Transmit(&UartHandle, ( uint8_t* )&ch, 1, 100 );
+    return ch;
+}
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -125,6 +141,8 @@ int main(void)
 #ifdef TRANSMITTER_BOARD
   /* Configure USER Button */
   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_GPIO);
+
+  DEBUG_LOG("Button init\n");
 	
   /* Wait for USER Button press before starting the Communication */
   while (BSP_PB_GetState(BUTTON_KEY) == RESET)
@@ -138,6 +156,7 @@ int main(void)
   while (BSP_PB_GetState(BUTTON_KEY) == SET)
   {
   }
+  DEBUG_LOG("Button Release\n");
   
   /* Turn LED3 off */
   BSP_LED_Off(LED3);
@@ -151,6 +170,7 @@ int main(void)
   {
     Error_Handler();
   }
+  DEBUG_LOG("Transmitted\n");
   
   /*##-3- Wait for the end of the transfer ###################################*/   
   while (UartReady != SET)
@@ -164,6 +184,7 @@ int main(void)
   if(HAL_UART_Receive_IT(&UartHandle, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
   {
     Error_Handler();
+    DEBUG_LOG("Receive Error\n");
   }
 
 #else
@@ -193,12 +214,13 @@ int main(void)
   }
   
 #endif /* TRANSMITTER_BOARD */
-  
+  DEBUG_LOG("[========= 5 =========]\n");
   /*##-5- Wait for the end of the transfer ###################################*/   
   while (UartReady != SET)
   {
   } 
   
+  DEBUG_LOG("[========= 6 =========]\n");
   /* Reset transmission flag */
   UartReady = RESET;
 
@@ -207,6 +229,9 @@ int main(void)
   {
     Error_Handler();
   }
+
+  
+  DEBUG_LOG("[========= 7 =========]\n");
   
   /* Infinite loop */
   while (1)
