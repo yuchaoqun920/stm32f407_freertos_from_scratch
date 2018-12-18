@@ -138,10 +138,10 @@ INCLUDE_DIRS    += $(BOOTLOADER_DIR)/UnityTest
 # include sub makefiles
 ifeq (${PLATFORM}, f407)
 include makefile_std_lib_m4.mk   # STM32 Standard Peripheral Library
-# include makefile_freertos_m4.mk  # freertos source
+include makefile_freertos_m4.mk  # freertos source
 else
 include makefile_std_lib.mk   # STM32 Standard Peripheral Library
-# include makefile_freertos.mk  # freertos source
+include makefile_freertos.mk  # freertos source
 endif
 
 INCDIR  = $(patsubst %, -I%, $(INCLUDE_DIRS))

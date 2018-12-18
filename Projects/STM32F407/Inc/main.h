@@ -42,6 +42,13 @@
 #include "stm32f4xx_hal.h"
 #include "stm32f4_discovery.h"
 
+#define configUSEfreeRTOS     1
+
+#if  configUSEfreeRTOS
+#include "cmsis_os.h"
+#include "FreeRTOSConfig.h"
+#endif
+
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* User can use this section to tailor USARTx/UARTx instance used and associated 

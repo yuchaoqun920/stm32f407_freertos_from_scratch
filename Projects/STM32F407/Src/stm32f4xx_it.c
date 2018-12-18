@@ -121,6 +121,7 @@ void UsageFault_Handler(void)
   }
 }
 
+#if !configUSEfreeRTOS
 /**
   * @brief  This function handles SVCall exception.
   * @param  None
@@ -148,6 +149,8 @@ void PendSV_Handler(void)
 {
 }
 
+#endif
+
 /**
   * @brief  This function handles SysTick Handler.
   * @param  None
@@ -156,6 +159,8 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   HAL_IncTick();
+  
+  osSystickHandler();
 }
 
 /******************************************************************************/
