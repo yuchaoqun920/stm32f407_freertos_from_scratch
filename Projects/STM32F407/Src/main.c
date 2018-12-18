@@ -69,7 +69,6 @@ uint8_t aRxBuffer[RXBUFFERSIZE];
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 static void Error_Handler(void);
-static uint16_t Buffercmp(uint8_t *pBuffer1, uint8_t *pBuffer2, uint16_t BufferLength);
 
 static osThreadId m_test_task_handle;
 static osThreadId m_led_task_handle;
@@ -112,7 +111,7 @@ void test_serial_task(void const *argument)
     while (1)
     {
         /* Led Flash And Print Button Status */
-        DELAY_MS(500);
+        DELAY_MS(1000);
         if (BSP_PB_GetState(BUTTON_KEY) == SET)
         {
             BSP_LED_On(LED4);

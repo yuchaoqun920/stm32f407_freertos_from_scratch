@@ -267,7 +267,7 @@
         </option>
         <option>
           <name>CCRequirePrototypes</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCMultibyteSupport</name>
@@ -307,6 +307,10 @@
           <state>$PROJ_DIR$\..\..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include</state>
           <state>$PROJ_DIR$\..\..\..\Drivers\STM32F4xx_HAL_Driver\Inc</state>
           <state>$PROJ_DIR$\..\..\..\Drivers\BSP\STM32F4-Discovery</state>
+          <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Middlewares\Third_Party\FreeRTOS\Source\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS</state>
+          <state>F:\Didi.so\Project\stm32f407_freertos_from_scratch\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F</state>
+          <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Projects\STM32F407\Inc</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -564,7 +568,8 @@
         </option>
         <option>
           <name>AUserIncludes</name>
-          <state></state>
+          <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Middlewares\Third_Party\FreeRTOS\Source\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Projects\STM32F407\Inc</state>
         </option>
         <option>
           <name>AExtraOptionsCheckV2</name>
@@ -1040,6 +1045,39 @@
         <name>$PROJ_DIR$\..\Src\stm32f4xx_it.c</name>
       </file>
     </group>
+  </group>
+  <group>
+    <name>FreeRTOS</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\croutine.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\list.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\port.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\MIDDLEWARES\THIRD_PARTY\FreeRTOS\Source\portable\IAR\ARM_CM4F\portasm.s</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\queue.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\tasks.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
+    </file>
   </group>
 </project>
 

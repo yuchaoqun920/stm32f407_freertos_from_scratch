@@ -179,6 +179,39 @@
       </file>
     </group>
   </group>
+  <group>
+    <name>FreeRTOS</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\croutine.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\list.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\port.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\portasm.s</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\queue.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\tasks.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
+    </file>
+  </group>
 </project>
 
 
