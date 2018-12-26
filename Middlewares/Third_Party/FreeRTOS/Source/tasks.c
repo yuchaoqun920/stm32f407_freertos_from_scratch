@@ -3128,6 +3128,7 @@ void vTaskMissedYield( void )
  * void prvIdleTask( void *pvParameters );
  *
  */
+static uint32_t g_sleep_count = 0;
 static portTASK_FUNCTION( prvIdleTask, pvParameters )
 {
 	/* Stop warnings. */
@@ -3215,7 +3216,10 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 					if( xExpectedIdleTime >= configEXPECTED_IDLE_TIME_BEFORE_SLEEP )
 					{
 						traceLOW_POWER_IDLE_BEGIN();
+                        g_sleep_count++;
+                        // printf("============ SLEEP ENTER  %d ===========\n", g_sleep_count);
 						portSUPPRESS_TICKS_AND_SLEEP( xExpectedIdleTime );
+                        // printf("============ SLEEP EXIT  %d ===========\n", g_sleep_count);
 						traceLOW_POWER_IDLE_END();
 					}
 					else

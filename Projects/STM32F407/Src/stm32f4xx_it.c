@@ -158,6 +158,9 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+
+    BSP_LED_Toggle(LED3);
+    
   HAL_IncTick();
   
   osSystickHandler();

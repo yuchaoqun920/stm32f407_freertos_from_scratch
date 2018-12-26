@@ -130,6 +130,7 @@ extern uint32_t SystemCoreClock;
   * @param  None
   * @retval None
   */
+ extern uint32_t SystemCoreClock; 
 int main(void)
 {
 
@@ -176,6 +177,18 @@ int main(void)
         Error_Handler();
     }
 
+#if UNITTEST
+    extern int UnityTestMain(void);
+    static osThreadId m_unitytest_task_handle;
+
+    extern void unity_Test_Task( void const* argument );
+    osThreadDef(UNITY_TEST_TASK, unity_Test_Task, osPriorityLow, 0, 6 * configMINIMAL_STACK_SIZE );
+    m_unitytest_task_handle = osThreadCreate( osThread( UNITY_TEST_TASK ), NULL );
+    if(m_unitytest_task_handle == NULL) {
+        DEBUG_LOG("create unity_Test_Task err!\n");
+    }
+#else
+
     DEBUG_LOG("[========== main @ %dHz =========]\n", SystemCoreClock);
 
     //create tasks
@@ -200,6 +213,7 @@ int main(void)
     {
         DEBUG_LOG("Create Led Task Success\n");
     }
+#endif
 
     /* Start scheduler */
     osKernelStart();
