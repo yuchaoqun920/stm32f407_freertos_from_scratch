@@ -200,7 +200,7 @@
       <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\port.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\portasm.s</name>
+      <name>$PROJ_DIR$\..\..\..\MIDDLEWARES\THIRD_PARTY\FreeRTOS\Source\portable\IAR\ARM_CM4F\portasm.s</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\queue.c</name>
@@ -210,6 +210,24 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
+    </file>
+  </group>
+  <group>
+    <name>Unittest</name>
+    <file>
+      <name>$PROJ_DIR$\..\Src\UnityTest\TestProductionCode.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\UnityTest\test_runners\TestProductionCode_Runner.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\UnityTest\unity.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\UnityTest\unity.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\UnityTest\unity_internals.h</name>
     </file>
   </group>
 </project>

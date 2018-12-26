@@ -42,6 +42,11 @@ void test_Run1(void)
 
 void test_systime(void)
 {
+    UNITY_LOG("[SYSTICK] CTL: %X", SysTick->CTRL);
+    UNITY_LOG("[SYSTICK] LOAD: %X", SysTick->LOAD);
+    UNITY_LOG("[SYSTICK] VAL: %X", SysTick->VAL);
+    UNITY_LOG("[SYSTICK] CALIB: %X", SysTick->CALIB);
+
     UNITY_LOG("Tick Freq: %d", HAL_GetTickFreq());
     uint32_t time_start = HAL_GetTick();
     osDelay(5000);

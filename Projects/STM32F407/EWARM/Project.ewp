@@ -175,6 +175,7 @@
           <state>USE_HAL_DRIVER</state>
           <state>STM32F407xx</state>
           <state>USE_STM32F4_DISCO</state>
+          <state>UNITTEST=1</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -235,7 +236,7 @@
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>11111110</state>
+          <state>00000000</state>
         </option>
         <option>
           <name>CCDebugInfo</name>
@@ -311,6 +312,7 @@
           <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS</state>
           <state>F:\Didi.so\Project\stm32f407_freertos_from_scratch\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F</state>
           <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Projects\STM32F407\Inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\stm32f407_freertos_from_scratch\Middlewares\Third_Party\UnityTest</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -330,16 +332,16 @@
         </option>
         <option>
           <name>CCOptLevel</name>
-          <state>3</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCOptStrategy</name>
           <version>0</version>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>3</state>
+          <state>0</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -410,7 +412,7 @@
         <option>
           <name>CCOptStrategySlave</name>
           <version>0</version>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCGuardCalls</name>
@@ -1077,6 +1079,24 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
+    </file>
+  </group>
+  <group>
+    <name>Unittest</name>
+    <file>
+      <name>$PROJ_DIR$\..\Src\UnityTest\TestProductionCode.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Src\UnityTest\test_runners\TestProductionCode_Runner.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\UnityTest\unity.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\UnityTest\unity.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Middlewares\Third_Party\UnityTest\unity_internals.h</name>
     </file>
   </group>
 </project>
